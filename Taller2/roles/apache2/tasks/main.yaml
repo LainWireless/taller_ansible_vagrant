@@ -1,4 +1,4 @@
-- name: "ensure apache2 is installed"
+- name: "ensure apache2 is installed."
   apt:
     pkg: apache2
 - name: copy template index 
@@ -9,7 +9,7 @@
     group: www-data
     mode: 0644
 
-- name: "Copiar fichero al servidor remoto"
+- name: "Copiar fichero al servidor remoto."
   copy:
     src: fichero.html
     dest: /var/www/html/fichero.html
@@ -17,12 +17,11 @@
     group: www-data
     mode: '0644'
 
-- name: "Copiar fichero de configuración y reiniciar el servicio"
+- name: "Copiar fichero de configuración y reiniciar el servicio."
   copy:
     src: etc/apache2/ports.conf
-    dest: /etc/apache2/ports.conf
+    dest: /etc/apache2/ports.conf 
     owner: root
     group: root
     mode: '0644'
-  notify:
-    - 
+  notify: restart apache2
